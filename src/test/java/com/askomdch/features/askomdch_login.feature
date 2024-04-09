@@ -55,17 +55,29 @@
 
         @regression
         Scenario: AskOmDch User Login Negative Empty Username/Email
-          When username or email field is blank and valid "123Ask" password
+          When username or email field is blank and valid "123Ask" password and click on login button
           Then  user should be able to see "Error: Username is required."
 
         @regression
         Scenario: AskOmDch User Login Negative Empty Password
-          When  user enters valid username "vikusher1" and password field is blank
+          When  user enters valid username "vikusher1" and password field is blank and click on login button
           Then  user should be able to see "Error: The password field is empty."
 
+        @regression
         Scenario: AskOmDch User Reset Password With Registered username
+          When user click on lost your password link
+          Then user should be able to enter "vikusher1" username and click reset password button
+          And  user should be able to see confirmation message "Password reset email has been sent."
 
+        @regression
         Scenario: AskOmDch User Reset Password With Not Registered username
+          When user click on lost your password link
+          Then user should be able to enter "vikusher!!!" username and click reset password button
+          And  user should be able to see "Invalid username or email." alert message
 
+        @regression
         Scenario: AskOmDch User Reset Password With Empty username
+          When user click on lost your password link
+          Then user should be able to enter "" username and click reset password button
+          And  user should be able to see "Enter a username or email address." alert message
 

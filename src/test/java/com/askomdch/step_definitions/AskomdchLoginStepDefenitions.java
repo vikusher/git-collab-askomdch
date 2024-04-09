@@ -109,8 +109,8 @@ public class AskomdchLoginStepDefenitions {
         loginButton.click();
     }
 
-    @When("user enters valid username {string} and password field is blank")
-    public void userEntersValidUsernameAndPasswordFieldIsBlank(String username) {
+    @When("user enters valid username {string} and password field is blank and click on login button")
+    public void userEntersValidUsernameAndPasswordFieldIsBlankAndClickOnLoginButton(String username) {
         WebElement emailInput = getDriver().findElement(By.id("username"));
         emailInput.sendKeys(username);
         WebElement loginButton = getDriver().findElement(By.xpath("//button[@type = 'submit'][contains(text(),'Log in')]"));
@@ -118,13 +118,51 @@ public class AskomdchLoginStepDefenitions {
         loginButton.click();
     }
 
-    @When("username or email field is blank and valid {string} password")
-    public void usernameEmailFieldIsBlankAndValidPassword(String password) {
+    @When("username or email field is blank and valid {string} password and click on login button")
+    public void usernameEmailFieldIsBlankAndValidPasswordAndClickOnLoginButton(String password) {
         WebElement passwordInput = getDriver().findElement(By.id("password"));
         passwordInput.sendKeys(password);
         WebElement loginButton = getDriver().findElement(By.xpath("//button[@type = 'submit'][contains(text(),'Log in')]"));
         Assert.assertTrue(loginButton.isEnabled());
         loginButton.click();
+    }
+
+    @And("user clicks on login button")
+    public void userClicksOnLoginButton() {
+        WebElement loginButton = getDriver().findElement(By.xpath("//button[@type = 'submit'][contains(text(),'Log in')]"));
+        Assert.assertTrue(loginButton.isEnabled());
+        loginButton.click();
+    }
+
+    @When("user click on lost your password link")
+    public void userClickOnLostYourPasswordLink() {
+        WebElement lostPasswordLink = getDriver().findElement(By.linkText("Lost your password?"));
+        Assert.assertTrue(lostPasswordLink.isEnabled());
+        lostPasswordLink.click();
+    }
+
+    @Then("user should be able to enter {string} username and click reset password button")
+    public void userShouldBeAbleToEnterUsernameAndClickResetPasswordButton(String username) {
+        WebElement message = getDriver().findElement(By.xpath("//*[@class = 'woocommerce-ResetPassword lost_reset_password']/p"));
+        Assert.assertEquals("Message not displayed","Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.",message.getText());
+        WebElement userInput = getDriver().findElement(By.id("user_login"));
+        Assert.assertTrue(userInput.isEnabled());
+        userInput.sendKeys(username);
+        WebElement resetPasswordButton = getDriver().findElement(By.xpath("//button[@type= 'submit']"));
+        Assert.assertTrue(resetPasswordButton.isEnabled());
+        resetPasswordButton.click();
+    }
+
+    @And("user should be able to see confirmation message {string}")
+    public void userShouldBeAbleToSeeConfirmationMessage(String expectConfirmationMessage) {
+        WebElement actualConfirmationMessage = getDriver().findElement(By.className("woocommerce-message"));
+        Assert.assertEquals("Message not correct",expectConfirmationMessage,actualConfirmationMessage.getText());
+    }
+
+    @And("user should be able to see {string} alert message")
+    public void userShouldBeAbleToSeeAlertMessage(String expectedAlertMessage) {
+        WebElement actualAlertMessage = getDriver().findElement(By.className("woocommerce-error"));
+        Assert.assertEquals("Message not alert",expectedAlertMessage,actualAlertMessage.getText());
     }
 }
 

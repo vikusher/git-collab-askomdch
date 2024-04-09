@@ -12,8 +12,8 @@ Feature: AskOmDch User Registration Feature with Scenario Outline
     And user should be able to register successfully "Hello " "<username>" " (not " "<username>" "? Log out)"
 
     Examples:
-      |username     |      email     |password|
-      | Alex13      |alex13@gmail.com|Alex123$|
-      | Alex14      |alex14@gmail.com|Alex123$|
-      | Alex15      |alex15@gmail.com|Alex123$|
-      | Alex16      |alex16@gmail.com|Alex123$|
+      |username     |      email     |password |
+      | Jakob1      |jakob1@gmail.com|Jakob123$|
+      | Mary1       |mary1@gmail.com |Mary123$ |
+      | Elisa1      |elisa1@gmail.com|Elisa123$|
+      | Ivan1       |ivan1@gmail.com |Ivan123$ |

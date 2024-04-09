@@ -84,6 +84,19 @@ public class AskomdchLoginStepDefenitions {
         Assert.assertTrue(loginButton.isEnabled());
         loginButton.click();
     }
+
+
+    @Then("user should be able to see {string}")
+    public void userShouldBeAbleToSee(String expectErrorMessage) {
+        WebElement actualErrorMessage = getDriver().findElement(By.xpath("//*[@class='woocommerce-error']/li"));
+        Assert.assertEquals("Error message does not match",expectErrorMessage,actualErrorMessage.getText());
+    }
+
+    @Then("user should be able to see {string} {string} {string}")
+    public void userShouldBeAbleToSee(String errorMessage, String userName, String errorMessage2) {
+        WebElement actualErrorMessage = getDriver().findElement(By.xpath("//*[@class='woocommerce-error']/li"));
+        Assert.assertEquals("Error message does not match",(errorMessage+userName+errorMessage2),actualErrorMessage.getText());
+    }
 }
 
 

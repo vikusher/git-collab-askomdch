@@ -13,7 +13,7 @@ Feature: AskOmDch User Registration Feature with Scenario Outline
 
     Examples:
       |username     |      email     |password |
-      | Jakob1      |jakob1@gmail.com|Jakob123$|
-      | Mary1       |mary1@gmail.com |Mary123$ |
-      | Elisa1      |elisa1@gmail.com|Elisa123$|
-      | Ivan1       |ivan1@gmail.com |Ivan123$ |
+      | Jakob3      |jakob3@gmail.com|Jakob123$|
+      | Mary3       |mary3@gmail.com |Mary123$ |
+      | Elisa3      |elisa3@gmail.com|Elisa123$|
+      | Ivan3       |ivan3@gmail.com |Ivan123$ |

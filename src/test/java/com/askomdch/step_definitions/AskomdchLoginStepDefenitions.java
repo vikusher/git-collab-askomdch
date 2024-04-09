@@ -53,6 +53,7 @@ public class AskomdchLoginStepDefenitions {
         String compressedText = trimInfoVerify.replaceAll("\\s+", " ");
         String finalText = compressedText.replaceAll("(?m)^\\s*$", "");
         Assert.assertEquals("User is not able to login successfully", successMessage, finalText );
+        Thread.sleep(3000);
 
     }
 }

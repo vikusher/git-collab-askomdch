@@ -64,7 +64,7 @@ public class AskOmDchNewUserRegistrationStepDefinitions {
 
     @And("user should be able to register successfully {string} {string} {string} {string} {string}")
     public void userShouldBeAbleToRegisterSuccessfully(String arg0, String arg1, String arg2, String arg3, String arg4) {
-        WebElement actRegisterMessage = getDriver().findElement(By.xpath("//*[@class = 'woocommerce-MyAccount-content']/p"));
+        WebElement actRegisterMessage = getDriver().findElement(By.xpath("(//*[@class = 'woocommerce-MyAccount-content']/p)[1]"));
         Assert.assertEquals("User Not registered",(arg0+arg1+arg2+arg3+arg4),actRegisterMessage.getText());
     }
 }

@@ -1,11 +1,14 @@
 package com.askomdch.step_definitions;
 import com.askomdch.config.ConfigReader;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import java.io.IOException;
 
 import static com.askomdch.driver.Driver.getDriver;
 
@@ -55,6 +58,31 @@ public class AskomdchLoginStepDefenitions {
         Assert.assertEquals("User is not able to login successfully", successMessage, finalText );
         Thread.sleep(3000);
 
+    }
+
+    @When("user enters valid {string} and {string} for login")
+    public void userEntersValidAndForLogin(String username, String password) {
+        WebElement emailInput = getDriver().findElement(By.id("username"));
+        emailInput.sendKeys(username);
+        WebElement passwordInput = getDriver().findElement(By.id("password"));
+        passwordInput.sendKeys(password);
+    }
+
+    @And("user checks remember me checkbox")
+    public void userChecksRememberMeCheckbox() throws InterruptedException {
+        try {
+            WebElement rememberMeCheckBox = getDriver().findElement(By.id("rememberme"));
+            Assert.assertTrue(rememberMeCheckBox.isDisplayed());
+            rememberMeCheckBox.click();
+        } catch (Exception e) {
+        }
+    }
+
+    @And("clicks on login button")
+    public void clicksOnLoginButton() {
+        WebElement loginButton = getDriver().findElement(By.xpath("//button[@type = 'submit'][contains(text(),'Log in')]"));
+        Assert.assertTrue(loginButton.isEnabled());
+        loginButton.click();
     }
 }
 

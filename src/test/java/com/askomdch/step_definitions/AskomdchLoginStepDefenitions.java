@@ -30,8 +30,8 @@ public class AskomdchLoginStepDefenitions {
         WebElement accountHeader = getDriver().findElement(By.tagName("h1"));
         Assert.assertTrue("Account Header is not displayed",accountHeader.isDisplayed());
     }
-    @When("user enters valid {username} and {password} for login and clicks on login button")
-    public void user_enters_valid_username_and_password_for_login_and_clicks_on_login_button(String username, String password) {
+    @When("user enters valid {string} and {string} for login and clicks on login button")
+    public void userEntersValidAndForLoginAndClicksOnLoginButton(String username, String password) {
         WebElement emailInput = getDriver().findElement(By.id("username"));
         emailInput.sendKeys(username);
         WebElement passwordInput = getDriver().findElement(By.id("password"));

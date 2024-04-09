@@ -67,4 +67,19 @@ public class AskOmDchNewUserRegistrationStepDefinitions {
         WebElement actRegisterMessage = getDriver().findElement(By.xpath("(//*[@class = 'woocommerce-MyAccount-content']/p)[1]"));
         Assert.assertEquals("User Not registered",(arg0+arg1+arg2+arg3+arg4),actRegisterMessage.getText());
     }
+
+    @Then("user should bee able to click addresses link")
+    public void userShouldBeeAbleToClickAddressesLink() {
+        WebElement addressLink = getDriver().findElement(By.linkText("Addresses"));
+        Assert.assertTrue(addressLink.isEnabled());
+        addressLink.click();
+    }
+
+    @And("verify {string} and {string} header is Displayed")
+    public void verifyAndHeaderIsDisplayed(String expectedHeader1, String expectedHeader2) {
+        WebElement billingHeader = getDriver().findElement(By.xpath("//*[@class='woocommerce-Address-title title']/*[contains(text(),'Billing')]"));
+        Assert.assertEquals("Billing Header not Displayed",expectedHeader1,billingHeader.getText());
+        WebElement shippingHeader = getDriver().findElement(By.xpath("//*[@class='woocommerce-Address-title title']/*[contains(text(),'Shipping')]"));
+        Assert.assertEquals("Shipping Header not Displayed",expectedHeader2,shippingHeader.getText());
+    }
 }

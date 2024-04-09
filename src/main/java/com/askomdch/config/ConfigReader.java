@@ -1,6 +1,7 @@
-package com.askomdch.features.config;
+package com.askomdch.config;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigReader {
@@ -15,7 +16,7 @@ public class ConfigReader {
                 properties = new Properties();
                 properties.load(inputStream);
                 inputStream.close();
-            }catch (Exception e){
+            }catch (IOException e){
                 e.printStackTrace();
             }
         }

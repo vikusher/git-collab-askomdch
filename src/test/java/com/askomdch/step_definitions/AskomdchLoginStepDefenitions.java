@@ -97,6 +97,35 @@ public class AskomdchLoginStepDefenitions {
         WebElement actualErrorMessage = getDriver().findElement(By.xpath("//*[@class='woocommerce-error']/li"));
         Assert.assertEquals("Error message does not match",(errorMessage+userName+errorMessage2),actualErrorMessage.getText());
     }
+
+    @When("user enters not valid username or email {string} and correct password {string} for login and clicks on login button")
+    public void userEntersNotValidUsernameOrEmailAndCorrectPasswordForLoginAndClicksOnLoginButton(String username, String password) {
+        WebElement emailInput = getDriver().findElement(By.id("username"));
+        emailInput.sendKeys(username);
+        WebElement passwordInput = getDriver().findElement(By.id("password"));
+        passwordInput.sendKeys(password);
+        WebElement loginButton = getDriver().findElement(By.xpath("//button[@type = 'submit'][contains(text(),'Log in')]"));
+        Assert.assertTrue(loginButton.isEnabled());
+        loginButton.click();
+    }
+
+    @When("user enters valid username {string} and password field is blank")
+    public void userEntersValidUsernameAndPasswordFieldIsBlank(String username) {
+        WebElement emailInput = getDriver().findElement(By.id("username"));
+        emailInput.sendKeys(username);
+        WebElement loginButton = getDriver().findElement(By.xpath("//button[@type = 'submit'][contains(text(),'Log in')]"));
+        Assert.assertTrue(loginButton.isEnabled());
+        loginButton.click();
+    }
+
+    @When("username or email field is blank and valid {string} password")
+    public void usernameEmailFieldIsBlankAndValidPassword(String password) {
+        WebElement passwordInput = getDriver().findElement(By.id("password"));
+        passwordInput.sendKeys(password);
+        WebElement loginButton = getDriver().findElement(By.xpath("//button[@type = 'submit'][contains(text(),'Log in')]"));
+        Assert.assertTrue(loginButton.isEnabled());
+        loginButton.click();
+    }
 }
 
 

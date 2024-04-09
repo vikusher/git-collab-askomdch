@@ -46,13 +46,15 @@ public class AskomdchLoginStepDefenitions {
         Assert.assertTrue(logOutLink.isDisplayed());
     }
 
-//    @Then("user should be able to see {string} message")
-//    public void user_should_be_able_to_see_message(String successMessage) {
-//        WebElement infoVerify = getDriver().findElement(By.xpath("(//div[@class='woocommerce-MyAccount-content']/p)[2]"));
-//        String trimInfoVerify = infoVerify.getText().trim();
-//        String compressedText = trimInfoVerify.replaceAll("\\s+", " ");
-//        String finalText = compressedText.replaceAll("(?m)^\\s*$", "");
-//        Assert.assertEquals("User is not able to login successfully", successMessage, finalText );
-//
-//    }
+    @Then("user should be able to see {string} message")
+    public void user_should_be_able_to_see_message(String successMessage) throws InterruptedException {
+        WebElement infoVerify = getDriver().findElement(By.xpath("(//div[@class='woocommerce-MyAccount-content']/p)[2]"));
+        String trimInfoVerify = infoVerify.getText().trim();
+        String compressedText = trimInfoVerify.replaceAll("\\s+", " ");
+        String finalText = compressedText.replaceAll("(?m)^\\s*$", "");
+        Assert.assertEquals("User is not able to login successfully", successMessage, finalText );
+
+    }
 }
+
+

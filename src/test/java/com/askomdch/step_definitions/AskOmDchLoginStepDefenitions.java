@@ -8,7 +8,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import static com.askomdch.driver.Driver.getDriver;
-
 public class AskOmDchLoginStepDefenitions {
 
     @Given("user is on the home page")

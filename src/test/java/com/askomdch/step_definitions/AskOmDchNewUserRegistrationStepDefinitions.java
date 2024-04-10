@@ -9,7 +9,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import static com.askomdch.driver.Driver.getDriver;
-
 public class AskOmDchNewUserRegistrationStepDefinitions {
     @Given("user is on the homepage")
     public void user_is_on_the_homepage() throws InterruptedException {

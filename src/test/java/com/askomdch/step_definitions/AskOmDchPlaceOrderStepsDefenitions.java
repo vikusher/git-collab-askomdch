@@ -99,4 +99,35 @@ public class AskOmDchPlaceOrderStepsDefenitions {
         WebElement actualConfirmationMessage = getDriver().findElement(By.xpath("//*[@class='woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received']"));
         Assert.assertEquals("Your order not confirmed",confirmationMessage,actualConfirmationMessage.getText());
     }
+
+    @And("user should be able to create account")
+    public void userShouldBeAbleToCreateAccount() {
+        WebElement createAccountCheckbox = getDriver().findElement(By.id("createaccount"));
+        Assert.assertTrue(createAccountCheckbox.isEnabled());
+        createAccountCheckbox.click();
+        WebElement userNameInput = getDriver().findElement(By.id("account_username"));
+
+    }
+
+    @And("user enters {string} for account username")
+    public void userEntersForAccountUsername(String username) {
+        WebElement userNameInput = getDriver().findElement(By.id("account_username"));
+        userNameInput.sendKeys(username);
+    }
+
+    @And("user enters {string} for account password")
+    public void userEntersForAccountPassword(String password) {
+        WebElement passwordInput = getDriver().findElement(By.id("account_password"));
+        passwordInput.sendKeys(password);
+    }
+
+    @Then("verify billing information and should see the {string}  {string}  {string}  {string}  {string}  {string}  {string}  {string} {string} {string}")
+    public void verifyBillingInformationAndShouldSeeThe(String firstname, String lastname, String company, String street1, String street2, String city, String state, String zip, String phone, String email) throws InterruptedException {
+        WebElement completedBillingInfoVerification = getDriver().findElement(By.xpath("//*[@class='woocommerce-column woocommerce-column--1 woocommerce-column--billing-address col-1']/address"));
+        String trimInfoVerify = completedBillingInfoVerification.getText().trim();
+        String compressedText = trimInfoVerify.replaceAll("\\s+", " ");
+        String finalText = compressedText.replaceAll("(?m)^\\s*$", "");
+        Assert.assertEquals("Billing information is not correct",firstname+" " + lastname+" " + company +" "+ street1 +" "+ street2+" "+ city +", "+ state+ " "+ zip +" "+ phone +" " + email, finalText);
+        Thread.sleep(3000);
+    }
 }

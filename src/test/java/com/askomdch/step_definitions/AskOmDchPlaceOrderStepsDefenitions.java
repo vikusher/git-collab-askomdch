@@ -163,9 +163,10 @@ public class AskOmDchPlaceOrderStepsDefenitions {
         select.selectByValue(shippingState);
     }
     @And("user enters {string} for different shipping zip_code")
-    public void userEntersForDifferentShippingZip_code(String shippingZipCode) {
+    public void userEntersForDifferentShippingZip_code(String shippingZipCode) throws InterruptedException {
         WebElement shippingZipCodeInput = getDriver().findElement(By.id("shipping_postcode"));
         shippingZipCodeInput.sendKeys(shippingZipCode);
+        Thread.sleep(2000);
     }
     @And("user enters {string} for order notes")
     public void userEntersForOrderNotes(String orderNotes) {

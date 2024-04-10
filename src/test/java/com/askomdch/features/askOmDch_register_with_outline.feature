@@ -13,12 +13,12 @@ Feature: AskOmDch User Registration Feature with Scenario Outline
 
     Examples:
       |username     |      email     |password |
-      | Jakob3      |jakob3@gmail.com|Jakob123$|
-      | Mary3       |mary3@gmail.com |Mary123$ |
-      | Elisa3      |elisa3@gmail.com|Elisa123$|
-      | Ivan3       |ivan3@gmail.com |Ivan123$ |
+      | Jakob9      |jakob9@gmail.com|Jakob123$|
+      | Mary9       |mary9@gmail.com |Mary123$ |
+      | Elisa9      |elisa9@gmail.com|Elisa123$|
+      | Ivan9       |ivan9@gmail.com |Ivan123$ |
 
-#  @smoke
+# @smoke
   Scenario Outline: AskOmDch Register New User with Scenario Outline and Add Billing and Shipping Address
     Given user is on the homepage
     When user clicks on the account link
@@ -48,9 +48,9 @@ Feature: AskOmDch User Registration Feature with Scenario Outline
 
     Examples:
       | username | email            | password  | firstname | lastname | company_name | country            | street_address1 | street_address2 | city    | state          | zip_code | phone      |
-      | David14  | david14@gmail.com| David123$ | David     | Jacob    | Jacob INC    | United States (US) | 123 Main Street | Apt #123        | Raleigh | NC             | 33515    | 9191199119 |
-      | Mary3       |mary3@gmail.com |Mary123$  | David     | Jacob    | Jacob INC    | United States (US) | 123 Main Street | Apt #123        | Raleigh | IL             | 33515    | 9191199119 |
-      | Elisa3      |elisa3@gmail.com|Elisa123$ | David     | Jacob    | Jacob INC    | United States (US) | 123 Main Street | Apt #123        | Raleigh | VA             | 33515    | 9191199119 |
-      | Ivan3       |ivan3@gmail.com |Ivan123$  | David     | Jacob    | Jacob INC    | United States (US) | 123 Main Street | Apt #123        | Raleigh | CA             | 33515    | 9191199119 |
+      | David17 | david17@gmail.com| David123$ | David     | Jacob    | Jacob INC    | United States (US) | 123 Main Street | Apt #123        | Raleigh | NC             | 33515    | 9191199119 |
+      | Mary5    |mary5@gmail.com |Mary123$  | David     | Jacob    | Jacob INC    | United States (US) | 123 Main Street | Apt #123        | Raleigh | IL             | 33515    | 9191199119 |
+      | Elisa5   |elisa5@gmail.com|Elisa123$ | David     | Jacob    | Jacob INC    | United States (US) | 123 Main Street | Apt #123        | Raleigh | VA             | 33515    | 9191199119 |
+      | Ivan5    |ivan5@gmail.com |Ivan123$  | David     | Jacob    | Jacob INC    | United States (US) | 123 Main Street | Apt #123        | Raleigh | CA             | 33515    | 9191199119 |
 
 

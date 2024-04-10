@@ -128,6 +128,15 @@ public class AskOmDchPlaceOrderStepsDefenitions {
         String compressedText = trimInfoVerify.replaceAll("\\s+", " ");
         String finalText = compressedText.replaceAll("(?m)^\\s*$", "");
         Assert.assertEquals("Billing information is not correct",firstname+" " + lastname+" " + company +" "+ street1 +" "+ street2+" "+ city +", "+ state+ " "+ zip +" "+ phone +" " + email, finalText);
-        Thread.sleep(3000);
+    }
+
+    @And("verify shipping information the same address and should be see the {string}  {string}  {string}  {string}  {string}  {string}  {string}  {string}")
+    public void verifyShippingInformationTheSameAddressAndShouldBeSeeThe(String firstname, String lastname, String company, String street1, String street2, String city, String state, String zip) {
+        WebElement completedShippingInfoVerification = getDriver().findElement(By.xpath("//*[@class='woocommerce-column woocommerce-column--2 woocommerce-column--shipping-address col-2']/address"));
+        String trimInfoVerify = completedShippingInfoVerification.getText().trim();
+        String compressedText = trimInfoVerify.replaceAll("\\s+", " ");
+        String finalText = compressedText.replaceAll("(?m)^\\s*$", "");
+        Assert.assertEquals("Billing information is not correct",firstname+" " + lastname+" " + company +" "+ street1 +" "+ street2+" "+ city +", "+ state+ " "+ zip, finalText);
+
     }
 }

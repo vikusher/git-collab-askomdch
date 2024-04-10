@@ -12,10 +12,11 @@ import static com.askomdch.driver.Driver.getDriver;
 
 public class AskOmDchNewUserRegistrationStepDefinitions {
     @Given("user is on the homepage")
-    public void user_is_on_the_homepage() {
+    public void user_is_on_the_homepage() throws InterruptedException {
         getDriver().get(ConfigReader.getProperty("url"));
+        Thread.sleep(1000);
         String actualTitle = getDriver().getTitle();
-        Assert.assertEquals("Home page titles do not match", actualTitle, "AskOmDch – Become a Selenium automation expert!");
+        Assert.assertEquals("Home page titles do not match", "AskOmDch – Become a Selenium automation expert!", actualTitle);
     }
 
     @When("user clicks on the account link")

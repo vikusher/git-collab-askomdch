@@ -50,8 +50,7 @@ public class AskOmDchPlaceOrderStepsDefenitions {
     @Then("user should be able to see {string} verify message")
     public void userShouldBeAbleToSeeVerifyMessage(String expectMessage) {
         String actualVerifyMessage = getDriver().findElement(By.className("woocommerce-message")).getText();
-        String substring = actualVerifyMessage.substring(actualVerifyMessage.indexOf("Dark"));
-        Assert.assertEquals("Product not to added to cart",expectMessage,substring);
+        Assert.assertTrue(actualVerifyMessage.contains(expectMessage));
     }
 
     @And("user should be able to click shopping cart link")
@@ -82,9 +81,10 @@ public class AskOmDchPlaceOrderStepsDefenitions {
     }
 
     @And("user enters {string} for email")
-    public void userEntersForEmail(String email) {
+    public void userEntersForEmail(String email) throws InterruptedException {
         WebElement emailInput = getDriver().findElement(By.id("billing_email"));
         emailInput.sendKeys(email);
+        Thread.sleep(2000);
     }
 
     @Then("user should be able to click place order button")

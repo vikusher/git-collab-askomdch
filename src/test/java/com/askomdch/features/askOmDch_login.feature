@@ -16,6 +16,7 @@
             When  user enters valid "vikusher@gmail.com" and "123Ask" for login and clicks on login button
             And   user should be able to login successfully
             Then  user should be able to see "From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details." message
+
         @regression
         Scenario: AskOmDch User Login Positive With Remember Me Checkbox
             When  user enters valid "vikusher1" and "123Ask" for login
@@ -23,11 +24,11 @@
             And   clicks on login button
             Then  user should be able to see "From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details." message
 
-
         @regression
         Scenario: AskOmDch User Login Negative not Registered User uses email
             When  user enters valid "vikush@gmail.com" and "123Ask" for login and clicks on login button
             Then  user should be able to see "Unknown email address. Check again or try your username."
+
         @regression
         Scenario: AskOmDch User Login Negative not Registered User uses user name
             When  user enters valid "vikush" and "123Ask" for login and clicks on login button

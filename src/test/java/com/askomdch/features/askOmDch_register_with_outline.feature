@@ -1,5 +1,5 @@
 Feature: AskOmDch User Registration Feature with Scenario Outline
-#  @smoke
+  @smoke
   Scenario Outline: AskOmDch Register New User with Scenario Outline
     Given user is on the homepage
     When user clicks on the account link
@@ -49,8 +49,8 @@ Feature: AskOmDch User Registration Feature with Scenario Outline
     Examples:
       | username | email            | password  | firstname | lastname | company_name | country            | street_address1 | street_address2 | city    | state          | zip_code | phone      |
       | David14  | david14@gmail.com| David123$ | David     | Jacob    | Jacob INC    | United States (US) | 123 Main Street | Apt #123        | Raleigh | NC             | 33515    | 9191199119 |
-#      | Mary3       |mary3@gmail.com |Mary123$ |
-#      | Elisa3      |elisa3@gmail.com|Elisa123$|
-#      | Ivan3       |ivan3@gmail.com |Ivan123$ |
+      | Mary3       |mary3@gmail.com |Mary123$  | David     | Jacob    | Jacob INC    | United States (US) | 123 Main Street | Apt #123        | Raleigh | IL             | 33515    | 9191199119 |
+      | Elisa3      |elisa3@gmail.com|Elisa123$ | David     | Jacob    | Jacob INC    | United States (US) | 123 Main Street | Apt #123        | Raleigh | VA             | 33515    | 9191199119 |
+      | Ivan3       |ivan3@gmail.com |Ivan123$  | David     | Jacob    | Jacob INC    | United States (US) | 123 Main Street | Apt #123        | Raleigh | CA             | 33515    | 9191199119 |
 
 

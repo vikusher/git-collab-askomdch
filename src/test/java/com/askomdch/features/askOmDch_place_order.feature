@@ -3,13 +3,13 @@ Feature: AskOmDch Place Order As a Guest Feature
   Scenario Outline: AskOmDch Place Order Steps
     Given user is on the homepage
     Then user should be able to click store link
-    And user should be able to enter product name "jeans" in search field and click search button
-    Then user should be able to verify search result "jeans"
-    And user should be able to see "Dark Brown Jeans" product item
-    And confirm "Dark Brown Jeans" product item and add to cart
-    Then user should be able to see "Dark Brown Jeans” has been added to your cart." verify message
+    And user should be able to enter product name "<product_item>" in search field and click search button
+    Then user should be able to verify search result "<product_item>"
+    And user should be able to see "<product_name>" product item
+    And confirm "<product_name>" product item and add to cart
+    Then user should be able to see "<product_name>” has been added to your cart." verify message
     And user should be able to click shopping cart link
-    And user should be able to verify cart page and product added "Dark Brown Jeans"
+    And user should be able to verify cart page and product added "<product_name>"
     Then user should be able to click proceed to checkout button
     And user should be able to see checkout page
     And user enters "<firstname>" for firstname
@@ -27,8 +27,9 @@ Feature: AskOmDch Place Order As a Guest Feature
     And user should be able to see "Thank you. Your order has been received." confirmation message
 
     Examples:
-      | firstname | lastname | company_name | country                 | street_address1 | street_address2 | city  | state | zip_code | phone  | email           |
-      |Bob        |Lee       |Bob INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|IL     |60008     |12345678|bobLee@gmail.com |
-
+      | firstname | lastname | company_name | country                 | street_address1 | street_address2 | city  | state | zip_code | phone  | email           |product_item|product_name    |
+      |Bob        |Lee       |Bob INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|IL     |60008     |12345678|bobLee@gmail.com |jeans       |Dark Brown Jeans|
+      |Ken        |Bee       |Ken INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|NC     |50008     |99999999|KenBee@gmail.com |jeans       |Dark Brown Jeans|
+      |Sam        |Ree       |Sam INC       |United States (US)       |777 N Palatine rd|apt#777          |Chicago|IN     |55555     |44444444|SamRee@gmail.com |jeans       |Dark Brown Jeans|
 
 

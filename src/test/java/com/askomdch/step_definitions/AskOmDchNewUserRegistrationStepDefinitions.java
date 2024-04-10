@@ -136,7 +136,7 @@ public class AskOmDchNewUserRegistrationStepDefinitions {
     @And("user selects {string} for state")
     public void userSelectsForState(String state) {
         Select select = new Select(getDriver().findElement(By.id("billing_state")));
-        select.selectByVisibleText(state);
+        select.selectByValue(state);
     }
 
     @And("user enters {string} for zip_code")
@@ -146,32 +146,33 @@ public class AskOmDchNewUserRegistrationStepDefinitions {
     }
 
     @And("user enters {string} for phone")
-    public void userEntersForPhone(String phone) throws InterruptedException {
+    public void userEntersForPhone(String phone) {
         WebElement phoneInput = getDriver().findElement(By.id("billing_phone"));
         phoneInput.sendKeys(phone);
-        Thread.sleep(3000);
     }
 
     @Then("user clicks on save address button")
-    public void userClicksOnSaveAddressButton() throws InterruptedException {
+    public void userClicksOnSaveAddressButton() {
         WebElement saveAddressButton = getDriver().findElement(By.xpath("//*[@name='save_address']"));
         saveAddressButton.click();
-        Thread.sleep(3000);
     }
 
-    @Then("verify completed billing information")
-    public void verifyCompletedBillingInformation() {
-
+    @And("verify {string} message")
+    public void verifyMessage(String expectedMessage) {
+        WebElement successMessage = getDriver().findElement(By.xpath("//*[@class='woocommerce-message']"));
+        Assert.assertEquals("Address changed successfully not displayed",expectedMessage,successMessage.getText());
+        System.out.println(successMessage.getText());
     }
 
-//    @Then("verify completed billing information and should see the {string} and {string} and {string} and {string} and {string} and {string} and {string} and {string}")
-//    public void verifyCompletedBillingInformationAndShouldSeeTheAndAndAndAndAndAndAnd(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7, String arg8) {
-//        WebElement successMessage = getDriver().findElement(By.xpath("//*[@class='woocommerce-message']"));
-//        Assert.assertEquals("Successfully message not displayed","Address changed successfully.",successMessage.getText());
-//        WebElement completedBillingInfoVerification = getDriver().findElement(By.xpath("//*[@class='u-column1 col-1 woocommerce-Address']"));
-//        System.out.println(completedBillingInfoVerification.getText());
-//        Assert.assertEquals("Billing information is not correct",arg0+ " " + arg1+ " " + arg2+ " " +arg3 + " " +arg4 + " " +arg5+ " " +arg6+ " " +arg7 + " " + arg8, completedBillingInfoVerification.getText());
-//        System.out.println(arg0+ " " + arg1+ " " + arg2+ " " +arg3 + " " +arg4 + " " +arg5+ " " +arg6+ " " +arg7 + " " + arg8);
-//    }
+    @Then("verify completed billing information and should see the {string}  {string}  {string}  {string}  {string}  {string}  {string}  {string}")
+    public void verifyCompletedBillingInformationAndShouldSeeThe(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7) {
+        WebElement completedBillingInfoVerification = getDriver().findElement(By.xpath("//*[@class='u-column1 col-1 woocommerce-Address']/address"));
+        String trimInfoVerify = completedBillingInfoVerification.getText().trim();
+        String compressedText = trimInfoVerify.replaceAll("\\s+", " ");
+        String finalText = compressedText.replaceAll("(?m)^\\s*$", "");
+        Assert.assertEquals("Billing information is not correct",arg0+" " + arg1+" " + arg2 +" "+ arg3 +" "+arg4+" " +arg5+", "+ arg6+ " " +arg7, finalText);
+
+
+    }
 }
 

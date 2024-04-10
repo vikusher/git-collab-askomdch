@@ -43,11 +43,12 @@ Feature: AskOmDch User Registration Feature with Scenario Outline
     And user enters "<zip_code>" for zip_code
     And user enters "<phone>" for phone
     And user clicks on save address button
+    And verify "Address changed successfully." message
     Then verify completed billing information and should see the "<firstname>"  "<lastname>"  "<company_name>"  "<street_address1>"  "<street_address2>"  "<city>"  "<state>"  "<zip_code>"
 
     Examples:
       | username | email            | password  | firstname | lastname | company_name | country            | street_address1 | street_address2 | city    | state          | zip_code | phone      |
-      | David6   | david6@gmail.com | David123$ | David     | Jacob    | Jacob INC    | United States (US) | 123 Main Street | Apt #123        | Raleigh | North Carolina | 33515    | 9191199119 |
+      | David13  | david13@gmail.com| David123$ | David     | Jacob    | Jacob INC    | United States (US) | 123 Main Street | Apt #123        | Raleigh | NC             | 33515    | 9191199119 |
 #      | Mary3       |mary3@gmail.com |Mary123$ |
 #      | Elisa3      |elisa3@gmail.com|Elisa123$|
 #      | Ivan3       |ivan3@gmail.com |Ivan123$ |

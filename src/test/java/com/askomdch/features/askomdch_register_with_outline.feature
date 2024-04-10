@@ -31,10 +31,25 @@ Feature: AskOmDch User Registration Feature with Scenario Outline
     And user should be able to register successfully "Hello " "<username>" " (not " "<username>" "? Log out)"
     Then user should bee able to click addresses link
     And verify "Billing address" and "Shipping address" header is Displayed
+    Then user clicks on add link billing address
+    And user enters "<firstname>" for firstname
+    And user enters "<lastname>" for lastname
+    And user enters "<company_name>" for company name
+    And user selects "<country>" for country
+    And user enters "<street_address1>" for street address first
+    And user enters "<street_address2>" for street address second
+    And user enters "<city>" for city
+    And user selects "<state>" for state
+    And user enters "<zip_code>" for zip_code
+    And user enters "<phone>" for phone
+    And user clicks on save address button
+    Then verify completed billing information and should see the "<firstname>"  "<lastname>"  "<company_name>"  "<street_address1>"  "<street_address2>"  "<city>"  "<state>"  "<zip_code>"
 
     Examples:
-      |username     |      email     |password |
-      | David1      |david1@gmail.com|David123$|
+      | username | email            | password  | firstname | lastname | company_name | country            | street_address1 | street_address2 | city    | state          | zip_code | phone      |
+      | David6   | david6@gmail.com | David123$ | David     | Jacob    | Jacob INC    | United States (US) | 123 Main Street | Apt #123        | Raleigh | North Carolina | 33515    | 9191199119 |
 #      | Mary3       |mary3@gmail.com |Mary123$ |
 #      | Elisa3      |elisa3@gmail.com|Elisa123$|
 #      | Ivan3       |ivan3@gmail.com |Ivan123$ |
+
+

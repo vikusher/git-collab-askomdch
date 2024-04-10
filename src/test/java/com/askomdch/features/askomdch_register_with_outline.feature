@@ -48,7 +48,7 @@ Feature: AskOmDch User Registration Feature with Scenario Outline
 
     Examples:
       | username | email            | password  | firstname | lastname | company_name | country            | street_address1 | street_address2 | city    | state          | zip_code | phone      |
-      | David13  | david13@gmail.com| David123$ | David     | Jacob    | Jacob INC    | United States (US) | 123 Main Street | Apt #123        | Raleigh | NC             | 33515    | 9191199119 |
+      | David14  | david14@gmail.com| David123$ | David     | Jacob    | Jacob INC    | United States (US) | 123 Main Street | Apt #123        | Raleigh | NC             | 33515    | 9191199119 |
 #      | Mary3       |mary3@gmail.com |Mary123$ |
 #      | Elisa3      |elisa3@gmail.com|Elisa123$|
 #      | Ivan3       |ivan3@gmail.com |Ivan123$ |

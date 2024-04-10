@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import static com.askomdch.driver.Driver.getDriver;
 
@@ -82,4 +83,95 @@ public class AskOmDchNewUserRegistrationStepDefinitions {
         WebElement shippingHeader = getDriver().findElement(By.xpath("//*[@class='woocommerce-Address-title title']/*[contains(text(),'Shipping')]"));
         Assert.assertEquals("Shipping Header not Displayed",expectedHeader2,shippingHeader.getText());
     }
+
+    @Then("user clicks on add link billing address")
+    public void userClicksOnAddLinkBillingAddress() {
+        WebElement addButtonBillingInformation = getDriver().findElement(By.xpath("//div[@class='u-column1 col-1 woocommerce-Address']//a"));
+        Assert.assertTrue(addButtonBillingInformation.isEnabled());
+        addButtonBillingInformation.click();
+    }
+
+    @And("user enters {string} for firstname")
+    public void userEntersForFirstname(String firstName) {
+        WebElement firstNameInput = getDriver().findElement(By.id("billing_first_name"));
+        firstNameInput.sendKeys(firstName);
+    }
+
+    @And("user enters {string} for lastname")
+    public void userEntersForLastname(String lastName){
+        WebElement lastNameInput = getDriver().findElement(By.id("billing_last_name"));
+        lastNameInput.sendKeys(lastName);
+    }
+
+    @And("user enters {string} for company name")
+    public void userEntersForCompanyName(String companyName) {
+        WebElement companyNameInput = getDriver().findElement(By.id("billing_company"));
+        companyNameInput.sendKeys(companyName);
+    }
+
+    @And("user selects {string} for country")
+    public void userSelectsForCountry(String country) {
+        Select select = new Select(getDriver().findElement(By.id("billing_country")));
+        select.selectByVisibleText(country);
+    }
+
+    @And("user enters {string} for street address first")
+    public void userEntersForStreetAddressFirst(String streetAddress1) {
+        WebElement streetAddress1Input = getDriver().findElement(By.id("billing_address_1"));
+        streetAddress1Input.sendKeys(streetAddress1);
+    }
+
+    @And("user enters {string} for street address second")
+    public void userEntersForStreetAddressSecond(String streetAddress2) {
+        WebElement streetAddress2Input = getDriver().findElement(By.id("billing_address_2"));
+        streetAddress2Input.sendKeys(streetAddress2);
+    }
+
+    @And("user enters {string} for city")
+    public void userEntersForCity(String city) {
+        WebElement cityInput = getDriver().findElement(By.id("billing_city"));
+        cityInput.sendKeys(city);
+    }
+
+    @And("user selects {string} for state")
+    public void userSelectsForState(String state) {
+        Select select = new Select(getDriver().findElement(By.id("billing_state")));
+        select.selectByVisibleText(state);
+    }
+
+    @And("user enters {string} for zip_code")
+    public void userEntersForZip_code(String zip) {
+        WebElement zipCodeInput = getDriver().findElement(By.id("billing_postcode"));
+        zipCodeInput.sendKeys(zip);
+    }
+
+    @And("user enters {string} for phone")
+    public void userEntersForPhone(String phone) throws InterruptedException {
+        WebElement phoneInput = getDriver().findElement(By.id("billing_phone"));
+        phoneInput.sendKeys(phone);
+        Thread.sleep(3000);
+    }
+
+    @Then("user clicks on save address button")
+    public void userClicksOnSaveAddressButton() throws InterruptedException {
+        WebElement saveAddressButton = getDriver().findElement(By.xpath("//*[@name='save_address']"));
+        saveAddressButton.click();
+        Thread.sleep(3000);
+    }
+
+    @Then("verify completed billing information")
+    public void verifyCompletedBillingInformation() {
+
+    }
+
+//    @Then("verify completed billing information and should see the {string} and {string} and {string} and {string} and {string} and {string} and {string} and {string}")
+//    public void verifyCompletedBillingInformationAndShouldSeeTheAndAndAndAndAndAndAnd(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7, String arg8) {
+//        WebElement successMessage = getDriver().findElement(By.xpath("//*[@class='woocommerce-message']"));
+//        Assert.assertEquals("Successfully message not displayed","Address changed successfully.",successMessage.getText());
+//        WebElement completedBillingInfoVerification = getDriver().findElement(By.xpath("//*[@class='u-column1 col-1 woocommerce-Address']"));
+//        System.out.println(completedBillingInfoVerification.getText());
+//        Assert.assertEquals("Billing information is not correct",arg0+ " " + arg1+ " " + arg2+ " " +arg3 + " " +arg4 + " " +arg5+ " " +arg6+ " " +arg7 + " " + arg8, completedBillingInfoVerification.getText());
+//        System.out.println(arg0+ " " + arg1+ " " + arg2+ " " +arg3 + " " +arg4 + " " +arg5+ " " +arg6+ " " +arg7 + " " + arg8);
+//    }
 }
+

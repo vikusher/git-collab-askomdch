@@ -141,8 +141,8 @@ public class AskOmDchNewUserRegistrationStepDefinitions {
         select.selectByValue(state);
     }
 
-    @And("user enters {string} for zip_code")
-    public void userEntersForZip_code(String zip) {
+    @And("user enters {string} for zipcode")
+    public void userEntersForZipCode(String zip) {
         WebElement zipCodeInput = getDriver().findElement(By.id("billing_postcode"));
         zipCodeInput.sendKeys(zip);
     }

@@ -20,7 +20,7 @@ Feature: AskOmDch Place Order  Feature
     And user enters "<street_address2>" for street address second
     And user enters "<city>" for city
     And user selects "<state>" for state
-    And user enters "<zip_code>" for zip_code
+    And user enters "<zip_code>" for zipcode
     And user enters "<phone>" for phone
     And user enters "<email>" for email
     Then user should be able to click place order button
@@ -61,7 +61,7 @@ Feature: AskOmDch Place Order  Feature
     And user enters "<street_address2>" for street address second
     And user enters "<city>" for city
     And user selects "<state>" for state
-    And user enters "<zip_code>" for zip_code
+    And user enters "<zip_code>" for zipcode
     And user enters "<phone>" for phone
     And user enters "<email>" for email
     And user should be able to create account
@@ -107,7 +107,7 @@ Feature: AskOmDch Place Order  Feature
     And user enters "<street_address2>" for street address second
     And user enters "<city>" for city
     And user selects "<state>" for state
-    And user enters "<zip_code>" for zip_code
+    And user enters "<zip_code>" for zipcode
     And user enters "<phone>" for phone
     And user enters "<email>" for email
     And user should be able to click ship to a different address

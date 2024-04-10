@@ -139,4 +139,10 @@ public class AskOmDchPlaceOrderStepsDefenitions {
         Assert.assertEquals("Billing information is not correct",firstname+" " + lastname+" " + company +" "+ street1 +" "+ street2+" "+ city +", "+ state+ " "+ zip, finalText);
 
     }
+
+    @And("user should be able to click ship to a different address")
+    public void userShouldBeAbleToClickShipToADifferentAddress() {
+        WebElement shipDifferentAddressCheckbox = getDriver().findElement(By.id("ship-to-different-address-checkbox"));
+        shipDifferentAddressCheckbox.click();
+    }
 }

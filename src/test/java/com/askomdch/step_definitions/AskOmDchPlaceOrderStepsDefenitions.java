@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import static com.askomdch.driver.Driver.getDriver;
 
@@ -144,5 +145,67 @@ public class AskOmDchPlaceOrderStepsDefenitions {
     public void userShouldBeAbleToClickShipToADifferentAddress() {
         WebElement shipDifferentAddressCheckbox = getDriver().findElement(By.id("ship-to-different-address-checkbox"));
         shipDifferentAddressCheckbox.click();
+    }
+
+    @And("user enters {string} for different shipping first name")
+    public void userEntersForDifferentShippingFirstName(String shippingFirstName) {
+        WebElement shippingFirstNameInput = getDriver().findElement(By.id("shipping_first_name"));
+        shippingFirstNameInput.sendKeys(shippingFirstName);
+
+    }
+
+    @And("user enters {string} for different shipping last name")
+    public void userEntersForDifferentShippingLastName(String shippingLastName) {
+        WebElement shippingLastNameInput = getDriver().findElement(By.id("shipping_last_name"));
+        shippingLastNameInput.sendKeys(shippingLastName);
+    }
+
+    @And("user enters {string} for different shipping company name")
+    public void userEntersForDifferentShippingCompanyName(String shippingCompanyName) {
+        WebElement shippingCompanyNameInput = getDriver().findElement(By.id("shipping_company"));
+        shippingCompanyNameInput.sendKeys(shippingCompanyName);
+    }
+
+    @And("user selects {string} for different shipping country")
+    public void userSelectsForDifferentShippingCountry(String shippingCountry) {
+        Select select = new Select(getDriver().findElement(By.id("shipping_country")));
+        select.selectByVisibleText(shippingCountry);
+
+    }
+
+    @And("user enters {string} for different shipping street address first")
+    public void userEntersForDifferentShippingStreetAddressFirst(String shippingStreetAddress1) {
+        WebElement shippingStreetAddressInput1 = getDriver().findElement(By.id("shipping_address_1"));
+        shippingStreetAddressInput1.sendKeys(shippingStreetAddress1);
+    }
+
+    @And("user enters {string} for different shipping street address second")
+    public void userEntersForDifferentShippingStreetAddressSecond(String shippingStreetAddress2) {
+        WebElement shippingStreetAddressInput2 = getDriver().findElement(By.id("shipping_address_2"));
+        shippingStreetAddressInput2.sendKeys(shippingStreetAddress2);
+    }
+
+    @And("user enters {string} for different shipping city")
+    public void userEntersForDifferentShippingCity(String shippingCity) {
+        WebElement shippingCityInput = getDriver().findElement(By.id("shipping_city"));
+        shippingCityInput.sendKeys(shippingCity);
+    }
+
+    @And("user selects {string} for different shipping state")
+    public void userSelectsForDifferentShippingState(String shippingState) {
+        Select select= new Select(getDriver().findElement(By.id("shipping_state")));
+        select.selectByValue(shippingState);
+    }
+
+    @And("user enters {string} for different shipping zip_code")
+    public void userEntersForDifferentShippingZip_code(String shippingZipCode) {
+        WebElement shippingZipCodeInput = getDriver().findElement(By.id("shipping_postcode"));
+        shippingZipCodeInput.sendKeys(shippingZipCode);
+    }
+
+    @And("user enters {string} for order notes")
+    public void userEntersForOrderNotes(String orderNotes) {
+        WebElement orderNotesInput = getDriver().findElement(By.id("order_comments"));
+        orderNotesInput.sendKeys(orderNotes);
     }
 }

@@ -1,5 +1,5 @@
 Feature: AskOmDch Place Order  Feature
-#  @smoke
+  @smoke
   Scenario Outline: AskOmDch Place Order As a Guest
     Given user is on the homepage
     Then user should be able to click store link
@@ -40,7 +40,7 @@ Feature: AskOmDch Place Order  Feature
       |Sam        |Ree       |Sam INC       |United States (US)       |777 N Palatine rd|apt#777          |Chicago|IN     |55555     |44444444|SamRee@gmail.com |Bracelet    |Boho Bangle Bracelet|
       |Ken        |Bee       |Ken INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|NC     |50008     |99999999|KenBee@gmail.com |jeans       |Basic Blue Jeans    |
 
-  @smoke
+#  @smoke
   Scenario Outline: AskOmDch Place Order As a Guest and Create Account
     Given user is on the homepage
     Then user should be able to click store link
@@ -86,6 +86,7 @@ Feature: AskOmDch Place Order  Feature
       |CocRee1  |password|Coc        |Ree       |Coc INC       |United States (US)       |777 N Palatine rd|apt#777          |Chicago|WA     |55555     |44444444|CocRee1@gmail.com |Bracelet    |Boho Bangle Bracelet|
       |SokBee1  |password|Ken        |Bee       |Sok INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|WI     |50008     |99999999|SokBee1@gmail.com |jeans       |Basic Blue Jeans    |
 
+#  @smoke
   Scenario Outline: AskOmDch Place Order As a Guest with different address for delivery
     Given user is on the homepage
     Then user should be able to click store link

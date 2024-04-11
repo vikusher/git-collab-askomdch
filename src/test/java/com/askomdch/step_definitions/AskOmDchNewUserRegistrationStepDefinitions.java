@@ -8,6 +8,9 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import javax.swing.text.AbstractDocument;
+
 import static com.askomdch.driver.Driver.getDriver;
 public class AskOmDchNewUserRegistrationStepDefinitions {
     @Given("user is on the homepage")
@@ -148,5 +151,82 @@ public class AskOmDchNewUserRegistrationStepDefinitions {
         String compressedText = trimInfoVerify.replaceAll("\\s+", " ");
         String finalText = compressedText.replaceAll("(?m)^\\s*$", "");
         Assert.assertEquals("Billing information is not correct",arg0+" " + arg1+" " + arg2 +" "+ arg3 +" "+arg4+" " +arg5+", "+ arg6+ " " +arg7, finalText);
+    }
+
+    @And("user clicks on add link shipping address")
+    public void userClicksOnAddLinkShippingAddress() {
+        WebElement shippingAddressAddLink = getDriver().findElement(By.xpath("//*[@class='u-column2 col-2 woocommerce-Address']//a"));
+        Assert.assertTrue(shippingAddressAddLink.isEnabled());
+        shippingAddressAddLink.click();
+    }
+
+    @Then("user enters {string} for shipping first name")
+    public void userEntersForShippingFirstName(String firstName) {
+        WebElement shippingFirstNameInput = getDriver().findElement(By.id("shipping_first_name"));
+        shippingFirstNameInput.sendKeys(firstName);
+    }
+
+    @And("user enters {string} for shipping last name")
+    public void userEntersForShippingLastName(String lastName) {
+        WebElement shippingLastNameInput = getDriver().findElement(By.id("shipping_last_name"));
+        shippingLastNameInput.sendKeys(lastName);
+    }
+
+    @And("user enters {string} for shipping company name")
+    public void userEntersForShippingCompanyName(String companyName) {
+        WebElement shippingCompanyNameInput = getDriver().findElement(By.id("shipping_company"));
+        shippingCompanyNameInput.sendKeys(companyName);
+    }
+
+    @And("user selects {string} for shipping country")
+    public void userSelectsForShippingCountry(String country) throws InterruptedException {
+        Select select = new Select(getDriver().findElement(By.id("shipping_country")));
+        select.selectByVisibleText(country);
+        Thread.sleep(3000);
+    }
+
+    @And("user enters {string} for shipping street address first")
+    public void userEntersForShippingStreetAddressFirst(String streetAddress1) {
+        WebElement shippingStreetAddressInput1 = getDriver().findElement(By.id("shipping_address_1"));
+        shippingStreetAddressInput1.sendKeys(streetAddress1);
+    }
+
+    @And("user enters {string} for shipping street address second")
+    public void userEntersForShippingStreetAddressSecond(String streetAddress2) {
+        WebElement shippingStreetAddressInput2 = getDriver().findElement(By.id("shipping_address_2"));
+        shippingStreetAddressInput2.sendKeys(streetAddress2);
+    }
+
+    @And("user enters {string} for shipping city")
+    public void userEntersForShippingCity(String city) {
+        WebElement shippingCityInput = getDriver().findElement(By.id("shipping_city"));
+        shippingCityInput.sendKeys(city);
+    }
+
+    @And("user selects {string} for shipping state")
+    public void userSelectsForShippingState(String state) {
+        Select select = new Select(getDriver().findElement(By.id("shipping_state")));
+        select.selectByValue(state);
+    }
+
+    @And("user enters {string} for shipping zip code")
+    public void userEntersForShippingZipCode(String zipCode) {
+        WebElement shippingZipCode = getDriver().findElement(By.id("shipping_postcode"));
+        shippingZipCode.sendKeys(zipCode);
+    }
+
+    @Then("user should be able to click on save address button")
+    public void userShouldBeAbleToClickOnSaveAddressButton() {
+        WebElement saveAddressButton = getDriver().findElement(By.xpath("//button[@name='save_address']"));
+        saveAddressButton.click();
+    }
+
+    @And("verify completed shipping address and should see the {string}  {string}  {string}  {string}  {string}  {string}  {string}  {string}")
+    public void verifyCompletedShippingAddressAndShouldSeeThe(String firstName, String lastName, String company, String streetAddress1, String streetAddress2, String city, String state, String zip_code) {
+        WebElement confirmInfo = getDriver().findElement(By.xpath("//*[@class='u-column2 col-2 woocommerce-Address']/address"));
+        String trimInfoVerify = confirmInfo.getText().trim();
+        String compressedText = trimInfoVerify.replaceAll("\\s+", " ");
+        String finalText = compressedText.replaceAll("(?m)^\\s*$", "");
+        Assert.assertEquals("Shipping information doesn't match", (firstName + " " + lastName + " " + company + " " + streetAddress1 + " " + streetAddress2 + " " + city + ", " + state + " " + zip_code), finalText);
     }
 }

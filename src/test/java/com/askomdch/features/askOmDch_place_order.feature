@@ -30,15 +30,15 @@ Feature: AskOmDch Place Order  Feature
       | firstname | lastname | company_name | country                 | street_address1 | street_address2 | city  | state | zip_code | phone  | email           |product_item|product_name        |
       |Bob        |Lee       |Bob INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|IL     |60008     |12345678|bobLee@gmail.com |jeans       |Dark Brown Jeans    |
       |Ken        |Bee       |Ken INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|NC     |50008     |99999999|KenBee@gmail.com |Shoes       |Blue Shoes          |
-#      |Sam        |Ree       |Sam INC       |United States (US)       |777 N Palatine rd|apt#777          |Chicago|IN     |55555     |44444444|SamRee@gmail.com |Tshirt      |Blue Tshirt         |
-#      |Bob        |Lee       |Bob INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|IL     |60008     |12345678|bobLee@gmail.com |jeans       |Denim Blue Jeans    |
-#      |Ken        |Bee       |Ken INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|NC     |50008     |99999999|KenBee@gmail.com |Shoes       |Red Shoes           |
-#      |Sam        |Ree       |Sam INC       |United States (US)       |777 N Palatine rd|apt#777          |Chicago|IN     |55555     |44444444|SamRee@gmail.com |Tshirt      |Green Tshirt        |
-#      |Bob        |Lee       |Bob INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|IL     |60008     |12345678|bobLee@gmail.com |jeans       |Dark Grey Jeans     |
-#      |Ken        |Bee       |Ken INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|NC     |50008     |99999999|KenBee@gmail.com |Bracelet    |Anchor Bracelet     |
-#      |Bob        |Lee       |Bob INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|IL     |60008     |12345678|bobLee@gmail.com |jeans       |Faint Blue Jeans    |
-#      |Sam        |Ree       |Sam INC       |United States (US)       |777 N Palatine rd|apt#777          |Chicago|IN     |55555     |44444444|SamRee@gmail.com |Bracelet    |Boho Bangle Bracelet|
-#      |Ken        |Bee       |Ken INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|NC     |50008     |99999999|KenBee@gmail.com |jeans       |Basic Blue Jeans    |
+      |Sam        |Ree       |Sam INC       |United States (US)       |777 N Palatine rd|apt#777          |Chicago|IN     |55555     |44444444|SamRee@gmail.com |Tshirt      |Blue Tshirt         |
+      |Bob        |Lee       |Bob INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|IL     |60008     |12345678|bobLee@gmail.com |jeans       |Denim Blue Jeans    |
+      |Ken        |Bee       |Ken INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|NC     |50008     |99999999|KenBee@gmail.com |Shoes       |Red Shoes           |
+      |Sam        |Ree       |Sam INC       |United States (US)       |777 N Palatine rd|apt#777          |Chicago|IN     |55555     |44444444|SamRee@gmail.com |Tshirt      |Green Tshirt        |
+      |Bob        |Lee       |Bob INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|IL     |60008     |12345678|bobLee@gmail.com |jeans       |Dark Grey Jeans     |
+      |Ken        |Bee       |Ken INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|NC     |50008     |99999999|KenBee@gmail.com |Bracelet    |Anchor Bracelet     |
+      |Bob        |Lee       |Bob INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|IL     |60008     |12345678|bobLee@gmail.com |jeans       |Faint Blue Jeans    |
+      |Sam        |Ree       |Sam INC       |United States (US)       |777 N Palatine rd|apt#777          |Chicago|IN     |55555     |44444444|SamRee@gmail.com |Bracelet    |Boho Bangle Bracelet|
+      |Ken        |Bee       |Ken INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|NC     |50008     |99999999|KenBee@gmail.com |jeans       |Basic Blue Jeans    |
 
 #  @smoke
   Scenario Outline: AskOmDch Place Order As a Guest and Create Account
@@ -74,17 +74,17 @@ Feature: AskOmDch Place Order  Feature
 
     Examples:
       |username |password| firstname | lastname | company_name | country                 | street_address1 | street_address2 | city  | state | zip_code | phone  | email            |product_item|product_name        |
-      |BobLee7  |password|Bob        |Lee       |Bob INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|IL     |60008     |12345678|BobLee7@gmail.com |jeans       |Dark Brown Jeans    |
-      |KenBee1  |password|Ken        |Bee       |Ken INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|NC     |50008     |99999999|KenBee1@gmail.com |Shoes       |Blue Shoes          |
-      |SamRee1  |password|Sam        |Ree       |Sam INC       |United States (US)       |777 N Palatine rd|apt#777          |Chicago|IN     |55555     |44444444|SamRee1@gmail.com |Tshirt      |Blue Tshirt         |
-      |JonLee1  |password|Jon        |Lee       |Jon INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|IA     |60008     |12345678|JonLee1@gmail.com |jeans       |Denim Blue Jeans    |
-      |RobBee1  |password|Rob        |Bee       |Rob INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|MS     |50008     |99999999|RobBee1@gmail.com |Shoes       |Red Shoes           |
-      |PopRee1  |password|Pop        |Ree       |Pop INC       |United States (US)       |777 N Palatine rd|apt#777          |Chicago|NV     |55555     |44444444|PopRee1@gmail.com |Tshirt      |Green Tshirt        |
-      |NikLee1  |password|Nik        |Lee       |Nik INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|NY     |60008     |12345678|NikLee1@gmail.com |jeans       |Dark Grey Jeans     |
-      |LolBee1  |password|Lol        |Bee       |Lol INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|OH     |50008     |99999999|LolBee1@gmail.com |Bracelet    |Anchor Bracelet     |
-      |FoxLee1  |password|Fox        |Lee       |Fox INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|SD     |60008     |12345678|FoxLee1@gmail.com |jeans       |Faint Blue Jeans    |
-      |CocRee1  |password|Coc        |Ree       |Coc INC       |United States (US)       |777 N Palatine rd|apt#777          |Chicago|WA     |55555     |44444444|CocRee1@gmail.com |Bracelet    |Boho Bangle Bracelet|
-      |SokBee1  |password|Ken        |Bee       |Sok INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|WI     |50008     |99999999|SokBee1@gmail.com |jeans       |Basic Blue Jeans    |
+      |BobLee8  |password|Bob        |Lee       |Bob INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|IL     |60008     |12345678|BobLee8@gmail.com |jeans       |Dark Brown Jeans    |
+      |KenBee2  |password|Ken        |Bee       |Ken INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|NC     |50008     |99999999|KenBee2@gmail.com |Shoes       |Blue Shoes          |
+      |SamRee2  |password|Sam        |Ree       |Sam INC       |United States (US)       |777 N Palatine rd|apt#777          |Chicago|IN     |55555     |44444444|SamRee2@gmail.com |Tshirt      |Blue Tshirt         |
+      |JonLee2  |password|Jon        |Lee       |Jon INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|IA     |60008     |12345678|JonLee2@gmail.com |jeans       |Denim Blue Jeans    |
+      |RobBee2  |password|Rob        |Bee       |Rob INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|MS     |50008     |99999999|RobBee2@gmail.com |Shoes       |Red Shoes           |
+      |PopRee2  |password|Pop        |Ree       |Pop INC       |United States (US)       |777 N Palatine rd|apt#777          |Chicago|NV     |55555     |44444444|PopRee2@gmail.com |Tshirt      |Green Tshirt        |
+      |NikLee2  |password|Nik        |Lee       |Nik INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|NY     |60008     |12345678|NikLee2@gmail.com |jeans       |Dark Grey Jeans     |
+      |LolBee2  |password|Lol        |Bee       |Lol INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|OH     |50008     |99999999|LolBee2@gmail.com |Bracelet    |Anchor Bracelet     |
+      |FoxLee2  |password|Fox        |Lee       |Fox INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|SD     |60008     |12345678|FoxLee2@gmail.com |jeans       |Faint Blue Jeans    |
+      |CocRee2  |password|Coc        |Ree       |Coc INC       |United States (US)       |777 N Palatine rd|apt#777          |Chicago|WA     |55555     |44444444|CocRee2@gmail.com |Bracelet    |Boho Bangle Bracelet|
+      |SokBee2  |password|Ken        |Bee       |Sok INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|WI     |50008     |99999999|SokBee2@gmail.com |jeans       |Basic Blue Jeans    |
 
 #  @smoke
   Scenario Outline: AskOmDch Place Order As a Guest with different address for delivery
@@ -139,7 +139,7 @@ Feature: AskOmDch Place Order  Feature
       |Ken        |Bee       |Ken INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|NC     |50008     |99999999|KenBee@gmail.com |jeans       |Basic Blue Jeans    |Sara           |Lee            |SaraINC            |United States (US)|192 Main St           |apt#44                |Apex       |NC          |27032          |Thank you    |
 
 
-      @smoke
+#      @smoke
   Scenario Outline: AskOmDch Place Order As a Guest with different address for delivery with create an account
     Given user is on the homepage
     Then user should be able to click store link

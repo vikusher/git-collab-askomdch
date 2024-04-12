@@ -5,6 +5,9 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.Random;
+
 import static com.askomdch.driver.Driver.getDriver;
 public class AskOmDchPlaceOrderStepsDefenitions {
     @Then("user should be able to click store link")
@@ -81,9 +84,10 @@ public class AskOmDchPlaceOrderStepsDefenitions {
         placeOrderButton.click();
     }
     @And("user should be able to see {string} confirmation message")
-    public void userShouldBeAbleToSeeConfirmationMessage(String confirmationMessage) {
+    public void userShouldBeAbleToSeeConfirmationMessage(String confirmationMessage) throws InterruptedException {
         WebElement actualConfirmationMessage = getDriver().findElement(By.xpath("//*[@class='woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received']"));
         Assert.assertEquals("Your order not confirmed",confirmationMessage,actualConfirmationMessage.getText());
+        Thread.sleep(3000);
     }
     @And("user should be able to create account")
     public void userShouldBeAbleToCreateAccount() {
@@ -172,5 +176,32 @@ public class AskOmDchPlaceOrderStepsDefenitions {
     public void userEntersForOrderNotes(String orderNotes) {
         WebElement orderNotesInput = getDriver().findElement(By.id("order_comments"));
         orderNotesInput.sendKeys(orderNotes);
+    }
+    private  String selectedPaymentMethodLabelText;
+
+    @And("user clicks on payment method randomly")
+    public void userClicksOnPaymentMethodRandomly() {
+        String[] arr = {"cod", "bacs"};
+        Random random = new Random();
+        int select = random.nextInt(arr.length);
+        WebElement randomPaymentMethod = getDriver().findElement(By.id("payment_method_" + arr[select]));
+        randomPaymentMethod.click();
+        WebElement bankRadioBtn = getDriver().findElement(By.id("payment_method_bacs"));
+        WebElement cashRadioBtn = getDriver().findElement(By.id("payment_method_cod"));
+        if(bankRadioBtn.isSelected()){
+            selectedPaymentMethodLabelText = getDriver().findElement(By.xpath("//*[@class='wc_payment_method payment_method_bacs']/label")).getText();
+        } else if (cashRadioBtn.isSelected()) {
+             selectedPaymentMethodLabelText=getDriver().findElement(By.xpath("//*[@class='wc_payment_method payment_method_cod']/label")).getText();
+        }
+        System.out.println(getSelectedPaymentMethodLabelText());
+    }
+    public String getSelectedPaymentMethodLabelText() {
+        return selectedPaymentMethodLabelText;
+    }
+
+    @And("user should be able to see confirmation message for payment method")
+    public void userShouldBeAbleToSeeConfirmationMessageForPaymentMethod() {
+        WebElement confirmationPaymentMethod = getDriver().findElement(By.xpath("//*[@class='woocommerce-order-overview__payment-method method']/strong"));
+        Assert.assertEquals("Not correct Payment Method",getSelectedPaymentMethodLabelText(),confirmationPaymentMethod.getText());
     }
 }

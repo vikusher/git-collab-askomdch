@@ -18,7 +18,7 @@ Feature: AskOmDch User Registration Feature with Scenario Outline
       | Elisa9      |elisa9@gmail.com|Elisa123$|
       | Ivan9       |ivan9@gmail.com |Ivan123$ |
 
- @smoke
+# @smoke
   Scenario Outline: AskOmDch Register New User with Scenario Outline and Add Billing and Shipping Address
     Given user is on the homepage
     When user clicks on the account link

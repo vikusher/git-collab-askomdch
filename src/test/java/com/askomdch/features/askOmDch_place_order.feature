@@ -1,5 +1,5 @@
 Feature: AskOmDch Place Order  Feature
-#  @smoke
+  @smoke
   Scenario Outline: AskOmDch Place Order As a Guest
     Given user is on the homepage
     Then user should be able to click store link
@@ -23,7 +23,9 @@ Feature: AskOmDch Place Order  Feature
     And user enters "<zip_code>" for zipcode
     And user enters "<phone>" for phone
     And user enters "<email>" for email
+    And user clicks on payment method randomly
     Then user should be able to click place order button
+    And user should be able to see confirmation message for payment method
     And user should be able to see "Thank you. Your order has been received." confirmation message
 
     Examples:

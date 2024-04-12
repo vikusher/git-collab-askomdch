@@ -29,18 +29,18 @@ Feature: AskOmDch Place Order  Feature
     And user should be able to see "Thank you. Your order has been received." confirmation message
 
     Examples:
-      | firstname | lastname | company_name | country                 | street_address1 | street_address2 | city  | state | zip_code | phone  | email           |product_item|product_name        |
-      |Bob        |Lee       |Bob INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|IL     |60008     |12345678|bobLee@gmail.com |jeans       |Dark Brown Jeans    |
-#      |Ken        |Bee       |Ken INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|NC     |50008     |99999999|KenBee@gmail.com |Shoes       |Blue Shoes          |
-#      |Sam        |Ree       |Sam INC       |United States (US)       |777 N Palatine rd|apt#777          |Chicago|IN     |55555     |44444444|SamRee@gmail.com |Tshirt      |Blue Tshirt         |
-#      |Bob        |Lee       |Bob INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|IL     |60008     |12345678|bobLee@gmail.com |jeans       |Denim Blue Jeans    |
-#      |Ken        |Bee       |Ken INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|NC     |50008     |99999999|KenBee@gmail.com |Shoes       |Red Shoes           |
-#      |Sam        |Ree       |Sam INC       |United States (US)       |777 N Palatine rd|apt#777          |Chicago|IN     |55555     |44444444|SamRee@gmail.com |Tshirt      |Green Tshirt        |
-#      |Bob        |Lee       |Bob INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|IL     |60008     |12345678|bobLee@gmail.com |jeans       |Dark Grey Jeans     |
-#      |Ken        |Bee       |Ken INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|NC     |50008     |99999999|KenBee@gmail.com |Bracelet    |Anchor Bracelet     |
-#      |Bob        |Lee       |Bob INC       |United States (US)       |123 N Palatine rd|apt#321          |Chicago|IL     |60008     |12345678|bobLee@gmail.com |jeans       |Faint Blue Jeans    |
-#      |Sam        |Ree       |Sam INC       |United States (US)       |777 N Palatine rd|apt#777          |Chicago|IN     |55555     |44444444|SamRee@gmail.com |Bracelet    |Boho Bangle Bracelet|
-#      |Ken        |Bee       |Ken INC       |United States (US)       |358 N Palatine rd|apt#123          |Chicago|NC     |50008     |99999999|KenBee@gmail.com |jeans       |Basic Blue Jeans    |
+      |	    email          	|	 firstname 	|	 lastname 	|	 company_name 	|	 country                 	|	 street_address1 	|	 street_address2 	|	 city  	|	 state 	|	 zip_code 	|	 phone  	|	product_item	|	product_name            |
+      |	MaxDar1gmail.com 	|	Maximilian	|	Darden	    |	MaxDardenINC	|	United States (US)       	|	123 N Palatine rd	|	apt#321          	|	Chicago	|	IL     	|	60008	    |	12345678	|	jeans       	|	Dark Brown Jeans    	|
+      |	LydMer1gmail.com 	|	Lydia	    |	Merchant	|	LydMerchantINC	|	United States (US)       	|	358 N Palatine rd	|	apt#123          	|	Chicago	|	NC     	|	50008	    |	12345679	|	Shoes       	|	Blue Shoes          	|
+      |	DreMcL1gmail.com 	|	Drew	    |	McLain	    |	DreMcLainINC	|	United States (US)       	|	777 N Palatine rd	|	apt#777          	|	Chicago	|	IN     	|	55555	    |	12345680	|	Tshirt      	|	Blue Tshirt         	|
+      |	KelGol1gmail.com 	|	Kelton	    |	Gold	    |	KelGoldINC	    |	United States (US)       	|	123 N Palatine rd	|	apt#321          	|	Chicago	|	IA     	|	60008	    |	12345681	|	jeans       	|	Denim Blue Jeans    	|
+      |	AleBau1gmail.com 	|	Alessandra	|	Baugh	    |	AleBaughINC	    |	United States (US)       	|	358 N Palatine rd	|	apt#123          	|	Chicago	|	MS     	|	50008	    |	12345682	|	Shoes       	|	Red Shoes           	|
+      |	CarLei1gmail.com 	|	Carson	    |	Leighton	|	CarLeightonINC	|	United States (US)       	|	777 N Palatine rd	|	apt#777          	|	Chicago	|	NV     	|	55555	    |	12345683	|	Tshirt      	|	Green Tshirt        	|
+      |	AlvMar1gmail.com 	|	Alvin	    |	March	    |	AlvMarchINC	    |	United States (US)       	|	123 N Palatine rd	|	apt#321          	|	Chicago	|	NY     	|	60008	    |	12345684	|	jeans       	|	Dark Grey Jeans     	|
+      |	EmmZim1gmail.com 	|	Emmanuel	|	Zimmerman	|	EmmZimmermanINC	|	United States (US)       	|	358 N Palatine rd	|	apt#123          	|	Chicago	|	OH     	|	50008	    |	12345685	|	Bracelet    	|	Anchor Bracelet     	|
+      |	TraRam1gmail.com 	|	Tracy	    |	Ramon	    |	TraRamonINC	    |	United States (US)       	|	123 N Palatine rd	|	apt#321          	|	Chicago	|	SD     	|	60008	    |	12345686	|	jeans       	|	Faint Blue Jeans    	|
+      |	RonBri1gmail.com 	|	Ronaldo	    |	Briones	    |	RonBrionesINC	|	United States (US)       	|	777 N Palatine rd	|	apt#777          	|	Chicago	|	WA     	|	55555	    |	12345687	|	Bracelet    	|	Boho Bangle Bracelet	|
+      |	IzaLan1gmail.com 	|	Izaiah	    |	Lange	    |	IzaLangeINC	    |	United States (US)       	|	358 N Palatine rd	|	apt#123          	|	Chicago	|	WI     	|	50008	    |	12345688	|	jeans       	|	Basic Blue Jeans    	|
 
   @smoke
   Scenario Outline: AskOmDch Place Order As a Guest and Create Account

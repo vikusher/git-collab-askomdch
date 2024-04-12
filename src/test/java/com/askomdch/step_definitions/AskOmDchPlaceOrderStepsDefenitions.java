@@ -222,7 +222,6 @@ public class AskOmDchPlaceOrderStepsDefenitions {
         } else if (cashRadioBtn.isSelected()) {
              selectedPaymentMethodLabelText=getDriver().findElement(By.xpath("//*[@class='wc_payment_method payment_method_cod']/label")).getText();
         }
-        System.out.println(getSelectedPaymentMethodLabelText());
     }
     public String getSelectedPaymentMethodLabelText() {
         return selectedPaymentMethodLabelText;

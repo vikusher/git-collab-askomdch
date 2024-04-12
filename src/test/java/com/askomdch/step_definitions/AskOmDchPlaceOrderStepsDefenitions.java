@@ -231,7 +231,9 @@ public class AskOmDchPlaceOrderStepsDefenitions {
     @And("user should be able to see confirmation message for payment method in order confirmation")
     public void userShouldBeAbleToSeeConfirmationMessageForPaymentMethodInOrderConfirmation() {
         WebElement confirmationPaymentMethod = getDriver().findElement(By.xpath("//*[@class='woocommerce-order-overview__payment-method method']/strong"));
+        WebElement confirmationPaymentMethod2 = getDriver().findElement(By.xpath("//*[@class='woocommerce-table woocommerce-table--order-details shop_table order_details']/tfoot/tr[4]/td"));
         Assert.assertEquals("Not correct Payment Method",getSelectedPaymentMethodLabelText(),confirmationPaymentMethod.getText());
+        Assert.assertEquals("Not correct Payment Method",getSelectedPaymentMethodLabelText(),confirmationPaymentMethod2.getText());
     }
 
     @And("user should be able to see confirmation {string} address")

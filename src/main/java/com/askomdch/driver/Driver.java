@@ -24,7 +24,7 @@ public class Driver {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions options = new ChromeOptions();
-//                    options.addArguments("--headless"); // Run in headless mode
+                    options.addArguments("--headless"); // Run in headless mode
                     options.addArguments("--no-sandbox"); // Bypass OS security model
 //                    options.addArguments("--disable-gpu"); // Applicable to windows os only
                     options.addArguments("start-maximized"); // Maximize the browser on start

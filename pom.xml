@@ -18,7 +18,7 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.4.1</version>
+            <version>5.8.0</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -41,6 +41,11 @@
             <version>7.11.1</version>
         </dependency>
         <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-devtools-v123</artifactId> <!-- Replace v124 with the appropriate version -->
+            <version>4.19.1</version> <!-- Replace with the version matching your Selenium version -->
+        </dependency>
+        <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
             <version>7.11.1</version>
@@ -48,20 +53,17 @@
     </dependencies>
     <build>
         <plugins>
+            <!-- Add Maven Surefire Plugin to run tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>test_runner/smoke.xml</suiteXmlFile>
-                    </suiteXmlFiles>
-                    <properties>
-                        <property>
-                            <name>listener</name>
-                            <value>org.testng.reporters.JUnitXMLReporter</value>
-                        </property>
-                    </properties>
+                    <includes>
+                        <include>**/*Runner.java</include>
+                    </includes>
+                    <reportFormat>xml</reportFormat>
+                    <reportsDirectory>target/surefire-reports</reportsDirectory>
                 </configuration>
             </plugin>
         </plugins>
